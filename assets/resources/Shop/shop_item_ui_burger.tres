@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopItemData" load_steps=3 format=3 uid="uid://dmyrv4jtca4re"]
+
+[ext_resource type="Texture2D" uid="uid://b4qh5br8bjspi" path="res://assets/arts/cheese_10494382.png" id="1_mc5p1"]
+[ext_resource type="Script" path="res://shop_item.gd" id="2_xwb7k"]
+
+[resource]
+script = ExtResource("2_xwb7k")
+name = "Бургер"
+price = 120
+icon = ExtResource("1_mc5p1")

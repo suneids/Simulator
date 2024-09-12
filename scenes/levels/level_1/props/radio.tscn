@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6xpmsa6uwutj"]
+
+[ext_resource type="PackedScene" uid="uid://cecw1mb0svrew" path="res://assets/models/level_1_props/radio.glb" id="1_0fgxo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tsuw5"]
+size = Vector3(0.798218, 0.477539, 0.125)
+
+[node name="radio" instance=ExtResource("1_0fgxo")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0236206, -0.0307617, 0)
+shape = SubResource("BoxShape3D_tsuw5")

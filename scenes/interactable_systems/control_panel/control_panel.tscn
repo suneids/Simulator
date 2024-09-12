@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8qchcqi4juc6"]
+
+[ext_resource type="Script" path="res://scenes/interactable_systems/control_panel/control_panel.gd" id="1_onxec"]
+[ext_resource type="PackedScene" uid="uid://by1qkwbsbrj3u" path="res://scenes/interactable_systems/control_panel/confirm_button.tscn" id="4_5yrph"]
+[ext_resource type="PackedScene" uid="uid://cnjus0k86jfxp" path="res://scenes/interactable_systems/control_panel/button.tscn" id="4_xvygl"]
+[ext_resource type="PackedScene" uid="uid://dlwnabah5eq30" path="res://scenes/interactable_systems/control_panel/clear_button.tscn" id="5_wynpb"]
+
+[sub_resource type="GDScript" id="GDScript_a2qrx"]
+script/source = "extends Area3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hphos"]
+size = Vector3(1.01913, 1.66716, 0.001)
+
+[node name="control_panel" type="Node3D"]
+script = ExtResource("1_onxec")
+code_length = 4
+code = "1111"
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.364849, 0.0142192)
+
+[node name="area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5072, -0.1912, -0.209715)
+collision_layer = 3
+collision_mask = 3
+script = SubResource("GDScript_a2qrx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.506246, -0.101043, 0.194054)
+shape = SubResource("BoxShape3D_hphos")
+
+[node name="button0" parent="." instance=ExtResource("4_xvygl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128497, -0.941179, -0.00269618)
+text = "0"
+
+[node name="button1" parent="." instance=ExtResource("4_xvygl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.342683, 0.0576232, -8.6009e-05)
+
+[node name="button2" parent="." instance=ExtResource("4_xvygl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0265732, 0.0562629, 0.00019908)
+text = "2"
+
+[node name="button3" parent="." instance=ExtResource("4_xvygl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.292856, 0.0562629, 0.00019908)
+text = "3"
+
+[node name="button4" parent="." instance=ExtResource("4_xvygl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.342654, -0.279102, 0.00019908)
+text = "4"
+
+[node name="button5" parent="." instance=ExtResource("4_xvygl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0246077, -0.287192, 0.00039816)
+text = "5"
+
+[node name="button6" parent="." instance=ExtResource("4_xvygl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.303227, -0.282834, 0.00019908)
+text = "6"
+
+[node name="button7" parent="." instance=ExtResource("4_xvygl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.342654, -0.600094, 0.00019908)
+text = "7"
+
+[node name="button8" parent="." instance=ExtResource("4_xvygl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0137255, -0.602136, 0.00019908)
+text = "8"
+
+[node name="button9" parent="." instance=ExtResource("4_xvygl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.314635, -0.60539, 0.00019908)
+text = "9"
+
+[node name="cofirm_button" parent="." instance=ExtResource("4_5yrph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.315348, -0.93917, 0.00019908)
+
+[node name="clear_button" parent="." instance=ExtResource("5_wynpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.339419, -0.927879, 0.00019908)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2tjxllj1ls3c"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_5w4gq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wjpdh"]
+radius = 0.568574
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xe4ms"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="item" type="RigidBody3D"]
+can_sleep = false
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("SphereMesh_5w4gq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_wjpdh")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_xe4ms")

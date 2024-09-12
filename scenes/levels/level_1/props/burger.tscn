@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp73qco564xv7"]
+
+[ext_resource type="PackedScene" uid="uid://7x23pvv7pger" path="res://assets/models/level_1_props/elburger.glb" id="1_yswk0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iy2oo"]
+radius = 3.252
+
+[node name="elburger" instance=ExtResource("1_yswk0")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="16"]
+transform = Transform3D(0.92388, 0, -0.382683, 0, 1, 0, 0.382683, 0, 0.92388, 0, 1.84426, 0)
+shape = SubResource("SphereShape3D_iy2oo")

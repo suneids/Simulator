@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqftrcufputka"]
+
+[ext_resource type="Script" path="res://scenes/menu/multiplayer_mode_menu.gd" id="1_pv38a"]
+[ext_resource type="ButtonGroup" uid="uid://dlbx3ywa2j1rg" path="res://assets/resources/PlayerModeButtonGroup.tres" id="2_v7yt5"]
+
+[node name="MultiplayerModeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pv38a")
+player_mode_group = ExtResource("2_v7yt5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -130.0
+offset_right = 149.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnetMultiplayerBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "ENet Multiplayer"
+
+[node name="SteamMultiplayerBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Steam Multiplayer"
+
+[node name="PlayerMode_Host_Btn" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+button_group = ExtResource("2_v7yt5")
+text = "Хост"
+metadata/PlayerMode = "Host"
+
+[node name="PlayerMode_Client_Btn" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+button_group = ExtResource("2_v7yt5")
+text = "Клиент"
+metadata/PlayerMode = "Client"
+
+[connection signal="pressed" from="VBoxContainer/EnetMultiplayerBtn" to="." method="_on_enet_multiplayer_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/SteamMultiplayerBtn" to="." method="_on_steam_multiplayer_btn_pressed"]

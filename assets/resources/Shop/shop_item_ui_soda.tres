@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopItemData" load_steps=3 format=3 uid="uid://253bnoybhi7j"]
+
+[ext_resource type="Texture2D" uid="uid://buscxg856cca5" path="res://assets/arts/soda-can_6873919.png" id="1_lp4rt"]
+[ext_resource type="Script" path="res://shop_item.gd" id="2_py7ef"]
+
+[resource]
+script = ExtResource("2_py7ef")
+name = "Вода"
+price = 250
+icon = ExtResource("1_lp4rt")

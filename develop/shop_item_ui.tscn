@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://jsy6i0ydvsfk"]
+
+[ext_resource type="Script" path="res://develop/shop_item_ui.gd" id="1_yg7ry"]
+[ext_resource type="Resource" uid="uid://dmyrv4jtca4re" path="res://assets/resources/Shop/shop_item_ui_burger.tres" id="2_ieobq"]
+
+[node name="ShopItemUI" type="PanelContainer"]
+script = ExtResource("1_yg7ry")
+item_data = ExtResource("2_ieobq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemIcon" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ItemPrice" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemAddToCart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Add to cart "

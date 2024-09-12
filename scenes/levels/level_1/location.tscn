@@ -1,0 +1,250 @@
+[gd_scene load_steps=31 format=3 uid="uid://t31t644in46g"]
+
+[ext_resource type="Script" path="res://scenes/levels/level_1/level_1.gd" id="1_d2dsd"]
+[ext_resource type="AudioStream" uid="uid://bvcvurl0aqjmn" path="res://assets/sounds/1e3ec1063de60af.mp3" id="2_yvwm7"]
+[ext_resource type="AudioStream" uid="uid://cqrktnmly085i" path="res://assets/sounds/cf64fdb328529c1.mp3" id="3_lql2u"]
+[ext_resource type="PackedScene" uid="uid://cg2o251o3pjnl" path="res://scenes/levels/level_1/props/shelter.tscn" id="6_bq0li"]
+[ext_resource type="PackedScene" uid="uid://brduwwc6ikpfp" path="res://scenes/npcs/scientist.tscn" id="6_ga2r5"]
+[ext_resource type="PackedScene" uid="uid://b8qchcqi4juc6" path="res://scenes/interactable_systems/control_panel/control_panel.tscn" id="7_hddfk"]
+[ext_resource type="PackedScene" uid="uid://smxoojqlsrql" path="res://scenes/levels/level_1/props/warn_sign.tscn" id="7_isjl1"]
+[ext_resource type="PackedScene" uid="uid://tm3tcpwxr80s" path="res://scenes/levels/level_1/props/warn_yellow_sign.tscn" id="8_qngvn"]
+[ext_resource type="PackedScene" uid="uid://3fd2vkdx5dtd" path="res://scenes/levels/level_1/props/car.tscn" id="9_1aq7p"]
+[ext_resource type="PackedScene" uid="uid://68v26b50nvcb" path="res://scenes/levels/level_1/props/boom_box.tscn" id="10_i3xql"]
+[ext_resource type="PackedScene" uid="uid://c6xpmsa6uwutj" path="res://scenes/levels/level_1/props/radio.tscn" id="11_f7n40"]
+[ext_resource type="PackedScene" uid="uid://4df4c7xatu5i" path="res://scenes/levels/level_1/props/stylezed_tree.tscn" id="12_0evoc"]
+[ext_resource type="PackedScene" uid="uid://p38hdndhp04e" path="res://scenes/levels/level_1/props/radio_telescope.tscn" id="13_10ci7"]
+[ext_resource type="PackedScene" uid="uid://dp73qco564xv7" path="res://scenes/levels/level_1/props/burger.tscn" id="14_j6xxa"]
+[ext_resource type="PackedScene" uid="uid://cle8nath6d5wg" path="res://banana.tscn" id="15_vn2rt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hl3mj"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_dmocf"]
+sky_material = SubResource("ProceduralSkyMaterial_hl3mj")
+
+[sub_resource type="Environment" id="Environment_pryjk"]
+background_mode = 2
+sky = SubResource("Sky_dmocf")
+tonemap_mode = 2
+
+[sub_resource type="PrismMesh" id="PrismMesh_7kddx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4i2w"]
+radius = 1.61262
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6ro64"]
+points = PackedVector3Array(2.53869, 0.039667, 2.53869, -2.53869, -0.039667, -2.53869, -2.53869, 0.039667, -2.53869, 2.53869, -0.039667, -2.53869, -2.53869, -0.039667, 2.53869, -2.53869, 0.039667, 2.53869, 2.53869, 0.039667, -2.53869, 2.53869, -0.039667, 2.53869)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejgb2"]
+albedo_color = Color(0.486275, 0.658824, 0.423529, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_gukkb"]
+material = SubResource("StandardMaterial3D_ejgb2")
+size = Vector2(5, 5)
+orientation = 1
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_nvahm"]
+shuffle = true
+stream_count = 2
+stream_0 = ExtResource("2_yvwm7")
+stream_1 = ExtResource("3_lql2u")
+
+[sub_resource type="BoxMesh" id="BoxMesh_34nhs"]
+size = Vector3(5.08, 5.13, 1.755)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_b5ul5"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rrw72"]
+viewport_path = NodePath("SubViewport3")
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_4o6kk"]
+vertices = PackedVector3Array(-14.5, 0.5, -14.5, -14.5, 0.5, 14.5, 14.5, 0.5, 14.5, 14.5, 0.5, -14.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i0gpq"]
+size = Vector2(30, 30)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7ftxx"]
+
+[node name="level_1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.57054, 0)
+script = ExtResource("1_d2dsd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pryjk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.56443, 1.10208, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("PrismMesh_7kddx")
+skeleton = NodePath("Label3D")
+
+[node name="Label3D" type="Label3D" parent="Area3D/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.793612, 0)
+text = "Компьютер"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122249, 0, -0.0159636)
+shape = SubResource("SphereShape3D_g4i2w")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(7.36167, 0, 0, 0, 1, 0, 0, 0, 7.2164, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("ConvexPolygonShape3D_6ro64")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ground"]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_gukkb")
+skeleton = NodePath("../..")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.62546, 0)
+stream = SubResource("AudioStreamPlaylist_nvahm")
+volume_db = -30.0
+autoplay = true
+
+[node name="MultiplayerSpawner_Players" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("../Players")
+
+[node name="Players" type="Node" parent="."]
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="point" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.42194, 7.30041, 7.15043)
+gizmo_extents = 0.97
+
+[node name="point2" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70158, 6.82559, -3.58186)
+gizmo_extents = 0.97
+
+[node name="point3" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70158, 6.82559, -10.6019)
+gizmo_extents = 0.97
+
+[node name="MultiplayerSpawner_Items" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("../Items")
+
+[node name="Items" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.66304, 0)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(-0.669138, -0.467672, 0.577527, 0, 0.777146, 0.629321, -0.743139, 0.421102, -0.520018, 9.67507, 6.28053, -8.37658)
+fov = 84.8068
+
+[node name="SubViewport3" type="SubViewport" parent="."]
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport3"]
+transform = Transform3D(-0.669138, -0.467672, 0.577527, 0, 0.777146, 0.62932, -0.743139, 0.421102, -0.520018, 165.229, 6.28053, -38.0248)
+fov = 84.8068
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(-2.21035e-08, 0, 0.132, 0, 0.487194, 0, -0.505669, 0, -5.7699e-09, 159.424, -7.36774, -2.94305)
+mesh = SubResource("BoxMesh_34nhs")
+
+[node name="Sprite3D" type="Sprite3D" parent="CSGMesh3D"]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 3.91155e-08, 0, -0.889862)
+texture = SubResource("ViewportTexture_b5ul5")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(-2.21035e-08, 0, 0.132, 0, 0.487194, 0, -0.505669, 0, -5.7699e-09, 159.424, -7.36774, 0.349587)
+mesh = SubResource("BoxMesh_34nhs")
+
+[node name="Sprite3D" type="Sprite3D" parent="CSGMesh3D2"]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 3.91155e-08, 0, -0.889862)
+texture = SubResource("ViewportTexture_rrw72")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075058, -2.6936)
+navigation_mesh = SubResource("NavigationMesh_4o6kk")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+mesh = SubResource("PlaneMesh_i0gpq")
+
+[node name="Scientist" parent="." node_paths=PackedStringArray("point") instance=ExtResource("6_ga2r5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.607)
+point = NodePath("../Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83386, 7.17963)
+gizmo_extents = 5.83
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D"]
+mesh = SubResource("SphereMesh_7ftxx")
+
+[node name="control_panel" parent="." instance=ExtResource("7_hddfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5654, 2.90443, -10.7986)
+
+[node name="Shelter" parent="." instance=ExtResource("6_bq0li")]
+transform = Transform3D(2, 0, 0, 0, 3, 0, 0, 0, 2, 87.8694, -10.0501, -15.764)
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="uploads_files_5419196_CGT_signs_NakedSingularity" parent="Props" instance=ExtResource("7_isjl1")]
+transform = Transform3D(2.97097, 0, 0.416327, 0, 3, 0, -0.416327, 0, 2.97097, 13.8951, 3.8484, -10.7139)
+
+[node name="uploads_files_5419196_CGT_signs_NakedSingularity2" parent="Props" instance=ExtResource("8_qngvn")]
+transform = Transform3D(3, 0, 0, 0, 2.99562, -0.161975, 0, 0.161975, 2.99562, 17.3347, 5.22025, -10.982)
+
+[node name="car" parent="Props" instance=ExtResource("9_1aq7p")]
+transform = Transform3D(0.517638, 0, 1.93185, 0, 2, 0, -1.93185, 0, 0.517638, -12.3511, 0.0375485, 12)
+
+[node name="boom_box" parent="Props" instance=ExtResource("10_i3xql")]
+transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, 1.64894, 0.0375485, 12)
+
+[node name="radio" parent="Props" instance=ExtResource("11_f7n40")]
+transform = Transform3D(0.517638, 0, 1.93185, 0, 2, 0, -1.93185, 0, 0.517638, -14, 0.583397, 0)
+
+[node name="stylezed_tree" parent="Props" instance=ExtResource("12_0evoc")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 2.28674, 0, 0)
+
+[node name="stylezed_tree2" parent="Props" instance=ExtResource("12_0evoc")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 2.28674, 0, -6.90072)
+
+[node name="stylezed_tree3" parent="Props" instance=ExtResource("12_0evoc")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -8.77421, 0, -6.90072)
+
+[node name="stylezed_tree4" parent="Props" instance=ExtResource("12_0evoc")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -8.77421, 0, -2.98025)
+
+[node name="stylezed_tree5" parent="Props" instance=ExtResource("12_0evoc")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -12.9517, 0, -2.98025)
+
+[node name="stylezed_tree6" parent="Props" instance=ExtResource("12_0evoc")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -12.9517, 0, -6.5951)
+
+[node name="Radio Telescope" parent="Props" instance=ExtResource("13_10ci7")]
+transform = Transform3D(-0.517638, 0, 1.93185, 0, 2, 0, -1.93185, 0, -0.517638, -7.17453, -0.768326, -16.4216)
+
+[node name="elburger" parent="Props" instance=ExtResource("14_j6xxa")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -9, 0, 0)
+
+[node name="elburger2" parent="Props" instance=ExtResource("14_j6xxa")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -9, 0, 2)
+
+[node name="elburger3" parent="Props" instance=ExtResource("14_j6xxa")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -12, 0, 2)
+
+[node name="elburger4" parent="Props" instance=ExtResource("14_j6xxa")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -12, 0, 4)
+
+[node name="banana" parent="Props" instance=ExtResource("15_vn2rt")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2, 2, -5)

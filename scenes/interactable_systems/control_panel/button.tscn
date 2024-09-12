@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnjus0k86jfxp"]
+
+[ext_resource type="Script" path="res://scenes/interactable_systems/control_panel/button.gd" id="1_ht44b"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_rafrq"]
+resource_local_to_scene = true
+size = Vector2(0.25, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_63pyo"]
+size = Vector3(0.247009, 0.250488, 0.0145874)
+
+[node name="button" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.342654, 0.0562629, 0.00019908)
+script = ExtResource("1_ht44b")
+text = "1"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00901532, 0, 0)
+mesh = SubResource("QuadMesh_rafrq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00527957, 0.00564936, 0.00459543)
+shape = SubResource("BoxShape3D_63pyo")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101897, 0.00222763, 0.000567197)
+text = "1"

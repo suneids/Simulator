@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl5jsstcsl8w"]
+
+[ext_resource type="Script" path="res://scenes/characters/character.gd" id="1_wt1jr"]
+[ext_resource type="PackedScene" uid="uid://b5alxp0ah53gl" path="res://scenes/menu/HUD/HUD.tscn" id="2_p6fbp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t1tv4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yykno"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_75n6p"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="character" type="CharacterBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+wall_min_slide_angle = 1.22173
+floor_max_angle = 1.22173
+safe_margin = 0.1
+script = ExtResource("1_wt1jr")
+speed = 15.0
+jump_velocity = 9.0
+
+[node name="Head" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+doppler_tracking = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_t1tv4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_yykno")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_75n6p")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.033661, -0.999433, 0, 0.999433, -0.033661, 0, 0, -0.976563)
+debug_shape_custom_color = Color(0, 0.352941, 1, 1)
+debug_shape_thickness = 5
+
+[node name="Hud" parent="." instance=ExtResource("2_p6fbp")]

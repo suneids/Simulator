@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://m1y0f2rjcudr"
+path.s3tc="res://.godot/imported/uploads_files_5419196_CGT_signs_NakedSingularity_T_Sign_01_metal_Metallic-T_Sign_01_metal_Roughness.png-0f894a21c1e0fe21a1f6d49d0b87f680.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "d7bcce47858096b8e8c583e06350da49"
+}
+
+[deps]
+
+source_file="res://assets/models/level_1_props/warning_signs/uploads_files_5419196_CGT_signs_NakedSingularity_T_Sign_01_metal_Metallic-T_Sign_01_metal_Roughness.png"
+dest_files=["res://.godot/imported/uploads_files_5419196_CGT_signs_NakedSingularity_T_Sign_01_metal_Metallic-T_Sign_01_metal_Roughness.png-0f894a21c1e0fe21a1f6d49d0b87f680.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
